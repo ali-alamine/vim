@@ -40,6 +40,8 @@ Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
 Bundle "garbas/vim-snipmate"
 Bundle "altercation/vim-colors-solarized"
+Bundle "pangloss/vim-javascript"
+Bundle "Raimondi/delimitMate"
 "Bundle "StanAngeloff/php.vim"
 "Bundle "nelstrom/vim-markdown-folding"
 
@@ -58,7 +60,8 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""""""
 """ Custom commands
 """"""""""""""""""""""""""""""""""""""""""""""""
-set noswapfile
+" Disable swap files
+"set noswapfile
 
 " Set autoindent
 set autoindent
@@ -111,7 +114,7 @@ map <C-J> <C-W>j
 map <C-H> <C-W>h
 map <C-K> <C-W>k
 map <C-L> <C-W>l
-nnoremap <Space> za
-vnoremap <Space> za
+nnoremap <Space> zA
+vnoremap <Space> zA
 map <C-n> <C-x><C-p>
 map <F5> :GundoToggle<CR>
