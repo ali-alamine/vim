@@ -39,9 +39,9 @@ Bundle "scrooloose/nerdtree"
 Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
 Bundle "garbas/vim-snipmate"
-Bundle "altercation/vim-colors-solarized"
-Bundle "pangloss/vim-javascript"
 Bundle "Raimondi/delimitMate"
+Bundle "bling/vim-airline"
+"Bundle 'jelera/vim-javascript-syntax'
 "Bundle "StanAngeloff/php.vim"
 "Bundle "nelstrom/vim-markdown-folding"
 
@@ -60,6 +60,17 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""""""
 """ Custom commands
 """"""""""""""""""""""""""""""""""""""""""""""""
+" Color scheme
+syntax enable
+set background=dark
+colorscheme solarized
+
+" Enable utf-8
+set enc=utf-8
+
+" Enable 256 color schemes
+set t_Co=256
+
 " Disable swap files
 "set noswapfile
 
@@ -94,10 +105,10 @@ set showcmd
 set history=1000
 
 " Disable the menus in gvim
-:set guioptions-=m  "remove menu bar
-:set guioptions-=T  "remove toolbar
-:set guioptions-=r  "remove right-hand scroll bar
-:set guioptions-=L  "remove left-hand scroll bar
+set guioptions-=m  "remove menu bar
+set guioptions-=T  "remove toolbar
+set guioptions-=r  "remove right-hand scroll bar
+set guioptions-=L  "remove left-hand scroll bar
 
 " Font settings
 "set guifont=Monospace:h9
@@ -105,16 +116,47 @@ set history=1000
 " Disable the mouse in gui
 set mouse=""
 
+" Enable vim-airline
+set laststatus=2
+let g:airline_powerline_fonts=1
+let g:airline#extensions#whitespace#enabled = 0
+let g:airline#extensions#tabline#enabled = 1 " Enable the list of buffers
+let g:airline#extensions#tabline#fnamemod = ':t' " Show just the filename
+
 """"""""""""""""""""""""""""""""""""""""""""""""
-""" Key mapping
+""" Custom commands
 """"""""""""""""""""""""""""""""""""""""""""""""
 
-map <F2> :NERDTreeToggle<CR>
-map <C-J> <C-W>j
-map <C-H> <C-W>h
-map <C-K> <C-W>k
-map <C-L> <C-W>l
+""""""""""""""""""""""""""""""""""""""""""""""""
+""" Key mappings
+""""""""""""""""""""""""""""""""""""""""""""""""
+
+nnoremap <F2> :NERDTreeToggle<CR>
+inoremap <F2> :NERDTreeToggle<CR>
+vnoremap <F2> :NERDTreeToggle<CR>
+nnoremap <C-J> <C-W>j
+nnoremap <C-H> <C-W>h
+nnoremap <C-K> <C-W>k
+nnoremap <C-L> <C-W>l
+inoremap <C-J> <C-W>j
+inoremap <C-H> <C-W>h
+inoremap <C-K> <C-W>k
+inoremap <C-L> <C-W>l
+vnoremap <C-J> <C-W>j
+vnoremap <C-H> <C-W>h
+vnoremap <C-K> <C-W>k
+vnoremap <C-L> <C-W>l
 nnoremap <Space> zA
 vnoremap <Space> zA
 map <C-n> <C-x><C-p>
 map <F5> :GundoToggle<CR>
+inoremap <F1> <ESC>
+nnoremap <F1> <ESC>
+vnoremap <F1> <ESC>
+nnoremap <F5> :e<CR>
+vnoremap <F5> :e<CR>
+
+"Set for the mycripplewars project
+nnoremap <F12> :cd /var/www/mycripplewars/advanced/<Cr>
+inoremap <F12> :cd /var/www/mycripplewars/advanced/<Cr>
+vnoremap <F12> :cd /var/www/mycripplewars/advanced/<Cr>
